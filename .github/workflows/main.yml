@@ -57,6 +57,11 @@ jobs:
         with:
           name: InfiniTime resources ${{ github.head_ref }}
           path: ./build/output/infinitime-resources-*.zip
+      - name: Upload InfiniTime MCUBoot hex artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: InfiniTime MCUBoot hex ${{ github.head_ref }}
+          path: ./build/output/*.hex
 
   build-simulator:
     runs-on: ubuntu-22.04
