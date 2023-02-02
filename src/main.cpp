@@ -334,7 +334,8 @@ int main() {
   nrf_gpio_pin_set(Pinetime::PinMap::TwiScl);
   for (uint8_t i = 0; i < 16; i++) {
     nrf_gpio_pin_toggle(Pinetime::PinMap::TwiScl);
-    nrf_delay_us(5);
+    nrf_delay_us(500);
+    nrf_gpio_pin_toggle(Pinetime::PinMap::TwiScl);
   }
   nrf_gpio_cfg_default(Pinetime::PinMap::TwiScl);
 
