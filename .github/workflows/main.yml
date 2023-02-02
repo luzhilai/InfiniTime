@@ -61,7 +61,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: InfiniTime MCUBoot hex ${{ github.head_ref }}
-          path: ./build/output/*.hex
+          path: ./build/output/src/*.hex 
 
   build-simulator:
     runs-on: ubuntu-22.04
