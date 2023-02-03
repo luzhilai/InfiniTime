@@ -5,6 +5,7 @@
 #include <libraries/gpiote/app_gpiote.h>
 #include <softdevice/common/nrf_sdh.h>
 #include <nrf_delay.h>
+#include <nrf_log.h>
 
 // nimble
 #define min // workaround: nimble's min/max macros conflict with libstdc++
