@@ -358,6 +358,8 @@ int main() {
   systemTask.Start();
 
   nimble_port_init();
+  
+  NRF_LOG_INFO("[lzl]system init over!");
 
   vTaskStartScheduler();
 
