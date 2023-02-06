@@ -132,7 +132,7 @@ void SystemTask::Work() {
   spiNorFlash.Init();
   spiNorFlash.Wakeup();
 
-  fs.Init();
+  //fs.Init();
   
   NRF_LOG_INFO("going 1");
 
@@ -140,7 +140,7 @@ void SystemTask::Work() {
   lcd.Init();
   NRF_LOG_INFO("going 2");
 
-  twiMaster.Init();
+  //twiMaster.Init();
   NRF_LOG_INFO("going 3");
   /*
    * TODO We disable this warning message until we ensure it won't be displayed
@@ -150,26 +150,26 @@ void SystemTask::Work() {
     bootError = BootErrors::TouchController;
   }
    */
-  touchPanel.Init();
+  //touchPanel.Init();
   NRF_LOG_INFO("going 4");
   dateTimeController.Register(this);
   batteryController.Register(this);
   NRF_LOG_INFO("going 5");
-  motorController.Init();
+  //motorController.Init();
   NRF_LOG_INFO("going 6");
-  motionSensor.SoftReset();
+  //motionSensor.SoftReset();
   NRF_LOG_INFO("going 7");
   timerController.Init(this);
   alarmController.Init(this);
   NRF_LOG_INFO("going 8");
 
   // Reset the TWI device because the motion sensor chip most probably crashed it...
-  twiMaster.Sleep();
-  twiMaster.Init();
+  //twiMaster.Sleep();
+  //twiMaster.Init();
   NRF_LOG_INFO("going 9");
 
-  motionSensor.Init();
-  motionController.Init(motionSensor.DeviceType());
+  //motionSensor.Init();
+  //motionController.Init(motionSensor.DeviceType());
   NRF_LOG_INFO("going 10");
   settingsController.Init();
   NRF_LOG_INFO("going 11");
@@ -178,9 +178,9 @@ void SystemTask::Work() {
   displayApp.Start(bootError);
   NRF_LOG_INFO("going 12");
 
-  heartRateSensor.Init();
-  heartRateSensor.Disable();
-  heartRateApp.Start();
+  //heartRateSensor.Init();
+  //heartRateSensor.Disable();
+ //heartRateApp.Start();
   NRF_LOG_INFO("going 13");
 
   buttonHandler.Init(this);
@@ -202,8 +202,8 @@ void SystemTask::Work() {
   // Touchscreen
   pinConfig.sense = NRF_GPIOTE_POLARITY_HITOLO;
   pinConfig.pull = NRF_GPIO_PIN_PULLUP;
-  nrfx_gpiote_in_init(PinMap::Cst816sIrq, &pinConfig, nrfx_gpiote_evt_handler);
-  nrfx_gpiote_in_event_enable(PinMap::Cst816sIrq, true);
+  //nrfx_gpiote_in_init(PinMap::Cst816sIrq, &pinConfig, nrfx_gpiote_evt_handler);
+  //nrfx_gpiote_in_event_enable(PinMap::Cst816sIrq, true);
 
   // Power present
   pinConfig.sense = NRF_GPIOTE_POLARITY_TOGGLE;
