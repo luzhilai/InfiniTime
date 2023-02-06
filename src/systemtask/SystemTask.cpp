@@ -133,11 +133,15 @@ void SystemTask::Work() {
   spiNorFlash.Wakeup();
 
   fs.Init();
+  
+  NRF_LOG_INFO("going 1");
 
   nimbleController.Init();
   lcd.Init();
+  NRF_LOG_INFO("going 2");
 
   twiMaster.Init();
+  NRF_LOG_INFO("going 3");
   /*
    * TODO We disable this warning message until we ensure it won't be displayed
    * on legitimate PineTime equipped with a compatible touch controller.
@@ -147,27 +151,37 @@ void SystemTask::Work() {
   }
    */
   touchPanel.Init();
+  NRF_LOG_INFO("going 4");
   dateTimeController.Register(this);
   batteryController.Register(this);
+  NRF_LOG_INFO("going 5");
   motorController.Init();
+  NRF_LOG_INFO("going 6");
   motionSensor.SoftReset();
+  NRF_LOG_INFO("going 7");
   timerController.Init(this);
   alarmController.Init(this);
+  NRF_LOG_INFO("going 8");
 
   // Reset the TWI device because the motion sensor chip most probably crashed it...
   twiMaster.Sleep();
   twiMaster.Init();
+  NRF_LOG_INFO("going 9");
 
   motionSensor.Init();
   motionController.Init(motionSensor.DeviceType());
+  NRF_LOG_INFO("going 10");
   settingsController.Init();
+  NRF_LOG_INFO("going 11");
 
   displayApp.Register(this);
   displayApp.Start(bootError);
+  NRF_LOG_INFO("going 12");
 
   heartRateSensor.Init();
   heartRateSensor.Disable();
   heartRateApp.Start();
+  NRF_LOG_INFO("going 13");
 
   buttonHandler.Init(this);
 
